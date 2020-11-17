@@ -7,6 +7,15 @@ import TextField from "@material-ui/core/TextField";
 import EmpTable from "./EmpTable";
 import styles from "./PopoverForm.css";
 
+function ValidateEmail(inputText) {
+  var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (inputText.match(mailformat)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function validate(e) {
   let newErrors = {};
   if (e.target[0].value === "") {
@@ -21,9 +30,13 @@ function validate(e) {
     newErrors.ok = 0;
     newErrors.emptyDepartment = 1;
   }
+  if (!ValidateEmail(e.target[3].value)) {
+    newErrors.ok = 0;
+    newErrors.emptyEmail = "Enter a valid email address";
+  }
   if (e.target[3].value === "") {
     newErrors.ok = 0;
-    newErrors.emptyEmail = 1;
+    newErrors.emptyEmail = "Field can't be empty";
   }
   if (e.target[4].value === "2020-11-15") {
     newErrors.ok = 0;
@@ -36,7 +49,6 @@ function PopoverForm() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [tableData, setTableData] = useState([]);
   const [errors, setErrors] = useState({});
-   
 
   const handleDelete = (idx) => {
     let newData = [...tableData];
@@ -86,7 +98,12 @@ function PopoverForm() {
 
   return (
     <div>
-        <Button variant="contained" onClick={handleClick} className="button" style={{ margin:"auto",display:"flex"}}>
+      <Button
+        variant="contained"
+        onClick={handleClick}
+        className="button"
+        style={{ margin: "auto", display: "flex" }}
+      >
         Add Employee
       </Button>
       <Popover
@@ -103,7 +120,7 @@ function PopoverForm() {
         }}
         className="popover"
       >
-        <Card  className="card">
+        <Card className="card">
           <CardContent>
             <form
               className=""
@@ -144,8 +161,10 @@ function PopoverForm() {
                 id="standard-basic"
                 label="Email ID"
                 className="txtfield"
-                error={errors.emptyEmail === 1 ? true : false}
-                helperText={errors.emptyEmail ? "Field can't be empty" : ""}
+                error={errors.emptyEmail !== undefined ? true : false}
+                helperText={
+                  errors.emptyEmail !== undefined ? errors.emptyEmail : ""
+                }
               />
               <br />
               <TextField
@@ -155,7 +174,9 @@ function PopoverForm() {
                 defaultValue="2020-11-15"
                 className="txtfield"
                 error={errors.emptyDOJ === 1 ? true : false}
-                helperText={errors.emptyDOJ ? "Select your date of joining" : ""}
+                helperText={
+                  errors.emptyDOJ ? "Select your date of joining" : ""
+                }
               />
               <br />
               <Button
