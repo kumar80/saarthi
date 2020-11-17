@@ -30,25 +30,25 @@ function EmpTable(props) {
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              <TableCell >{columns[0].field}</TableCell>
-              <TableCell align="left">{columns[1].field}</TableCell>
-              <TableCell align="left">{columns[2].field}</TableCell>
-              <TableCell align="left">{columns[3].field}</TableCell>
-              <TableCell align="left">{columns[4].field}</TableCell>
-              <TableCell align="left"></TableCell>
+              <TableCell align="center">{columns[0].field}</TableCell>
+              <TableCell align="center">{columns[1].field}</TableCell>
+              <TableCell align="center">{columns[2].field}</TableCell>
+              <TableCell align="center">{columns[3].field}</TableCell>
+              <TableCell align="center">{columns[4].field}</TableCell>
+              <TableCell align="center"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {data.map((row, i) => (
               <TableRow key={i} className={i&1?"rowodd":""}>
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" align="center">
                   {row.Name}
                 </TableCell>
-                <TableCell align="left">{row.EmployeeID}</TableCell>
-                <TableCell align="left">{row.Department}</TableCell>
-                <TableCell align="left">{row.Email}</TableCell>
-                <TableCell align="left">{row.DOJ}</TableCell>
-                <TableCell align="left">
+                <TableCell align="center">{row.EmployeeID}</TableCell>
+                <TableCell align="center">{row.Department}</TableCell>
+                <TableCell align="center">{row.Email}</TableCell>
+                <TableCell align="center">{row.DOJ}</TableCell>
+                <TableCell align="center">
                   <Button
                     size="small"
                     variant="contained"
