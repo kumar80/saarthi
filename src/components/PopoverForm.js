@@ -8,6 +8,7 @@ import EmpTable from "./EmpTable";
 import styles from "./PopoverForm.css";
 
 function ValidateEmail(inputText) {
+  inputText.trim();
   var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if (inputText.match(mailformat)) {
     return true;
@@ -159,6 +160,7 @@ function PopoverForm() {
               <br />
               <TextField
                 id="standard-basic"
+                type="email"
                 label="Email ID"
                 className="txtfield"
                 error={errors.emptyEmail !== undefined ? true : false}
