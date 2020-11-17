@@ -6,7 +6,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from "@material-ui/icons/Delete";
 import styles from "./EmpTable.css";
 
 function EmpTable(props) {
@@ -23,7 +23,7 @@ function EmpTable(props) {
     { field: "Email" },
     { field: "Date Of Joining" },
   ];
-  
+
   return (
     <Paper width="100%" className="paper">
       <TableContainer id="11" className="tableFixHeader">
@@ -40,7 +40,7 @@ function EmpTable(props) {
           </TableHead>
           <TableBody>
             {data.map((row, i) => (
-              <TableRow key={i} className={i&1?"rowodd":""}>
+              <TableRow key={i} className={i & 1 ? "rowodd" : ""}>
                 <TableCell component="th" scope="row" align="center">
                   {row.Name}
                 </TableCell>
@@ -55,7 +55,7 @@ function EmpTable(props) {
                     color="secondary"
                     onClick={() => handleDelete(i)}
                   >
-                   <DeleteIcon>Delete</DeleteIcon> 
+                    <DeleteIcon>Delete</DeleteIcon>
                   </Button>
                 </TableCell>
               </TableRow>
