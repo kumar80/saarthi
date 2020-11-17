@@ -6,7 +6,6 @@ import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
 import EmpTable from "./EmpTable";
 import styles from "./PopoverForm.css";
-import MediaQuery from 'react-responsive'
 
 function validate(e) {
   let newErrors = {};
