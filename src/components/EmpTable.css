@@ -1,0 +1,9 @@
+.tableFixHeader {
+    overflow-y: auto;
+    max-height: 600px;
+  }
+.paper{
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

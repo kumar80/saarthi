@@ -1,0 +1,18 @@
+.card {
+  display: flex;
+}
+
+.button {
+  margin: auto;
+  top: 52px;
+  display:flex;
+}
+.submit-btn {
+    margin-top: 100px;
+}
+.popover{
+  display: flex;
+}
+.clear-btn{
+  margin-left: 5px;
+}
